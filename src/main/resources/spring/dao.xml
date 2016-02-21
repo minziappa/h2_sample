@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- start-############be setted Dao Class################## -->
-	<bean id="userDao" class="com.mkyong.dao.UserDaoImpl" >
+	<bean id="userDaoImpl" class="io.sample.h2.dao.UserDaoImpl" >
 		<property name="namedParameterJdbcTemplate" ref="jdbcTemplate" />
 	</bean>
 

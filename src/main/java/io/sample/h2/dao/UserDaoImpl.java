@@ -30,7 +30,6 @@ public class UserDaoImpl implements UserDao {
         params.put("name", name);
 
 		String sql = "SELECT * FROM users WHERE name=:name";
-
         User result = namedParameterJdbcTemplate.queryForObject(sql, params, new UserMapper());
 
         return result;
@@ -41,7 +40,6 @@ public class UserDaoImpl implements UserDao {
 		Map<String, Object> params = new HashMap<String, Object>();
 
 		String sql = "SELECT * FROM users";
-
         List<User> result = namedParameterJdbcTemplate.query(sql, params, new UserMapper());
 
         return result;
