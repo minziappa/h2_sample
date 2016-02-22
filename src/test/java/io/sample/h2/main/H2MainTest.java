@@ -1,7 +1,10 @@
 package io.sample.h2.main;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
@@ -22,12 +25,17 @@ public class H2MainTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-
+		System.out.println("Before");
+	}
+	
+	@Test
+	public void test1() { 
+		assertEquals(new Double(1),new Double(1)); 
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		
+		System.out.println("After");
 	}
-	
+
 }

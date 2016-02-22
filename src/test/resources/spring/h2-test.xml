@@ -8,25 +8,24 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
-	<jdbc:embedded-database id="dataSource" type="H2">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.h2.Driver"/>
-		<property name="url" value="jdbc:h2:~/test;MODE=MySQL" />
+		<property name="url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MySQL;INIT=create schema if not exists test\;"/>
         <property name="username" value="sa"/>
-        <property name="password" value="" /> 
-	</jdbc:embedded-database>
+        <property name="password" value="" />
+	</bean>
 
     <bean id="dbInit" class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
         <property name="scripts">
             <list>
                 <value>classpath:sql/db-schema.sql</value>
-                <value>classpath:sql/db-test-data.sql</value>
             </list>
         </property>
         <property name="continueOnError" value="true"/>
     </bean>
     <bean id="dbCleanup" class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
         <property name="scripts">
-            <list>
+			<list>
                 <value>classpath:sql/drop-schema.sql</value>
             </list>
         </property>
@@ -36,4 +35,9 @@
         <property name="databasePopulator"><ref bean="dbInit"/></property>
         <property name="databaseCleaner"><ref bean="dbCleanup"/></property>
     </bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" >
+		<constructor-arg ref="dataSource" />
+	</bean>
+
 </beans>

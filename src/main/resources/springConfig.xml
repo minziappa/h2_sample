@@ -21,7 +21,7 @@
 
 	<!-- Common Resource -->
 	<import resource="classpath:spring/common.xml"/>
-	<import resource="classpath:spring/h2-test.xml"/>
+	<import resource="classpath:spring/h2.xml"/>
 	<import resource="classpath:spring/dao.xml"/>
 	<import resource="classpath:spring/service.xml"/>
 </beans>
