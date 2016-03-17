@@ -12,7 +12,7 @@ public class H2Main {
 		System.out.println("I love minji");
 		ApplicationContext context = new ClassPathXmlApplicationContext("springConfig.xml");
 		SampleService sampleService = (SampleService) context.getBean("sampleServiceImpl");
-		sampleService.doTest();
+		sampleService.getName();
 	}
 
 }

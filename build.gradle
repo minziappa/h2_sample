@@ -36,13 +36,14 @@ dependencies {
     compile 'org.springframework:spring-context:' + springVersion
     compile 'org.springframework:spring-orm:' + springVersion
 	compile 'org.springframework:spring-jdbc:' + springVersion
+	compile 'org.hibernate:hibernate-annotations:3.5.6-Final'
+	compile 'org.hibernate:hibernate-entitymanager:5.0.8.Final'
 	testCompile 'org.springframework:spring-test:' + springVersion
 	compile 'org.springmodules:spring-modules-jakarta-commons:0.8'
 	compile 'com.h2database:h2:1.4.191'
 	testCompile 'com.github.springtestdbunit:spring-test-dbunit:1.2.1'
 	testCompile 'org.dbunit:dbunit:2.5.1'
 	testCompile 'junit:junit:4.12'
-
 }
 
 final String DEFAULT_PROFILE = 'develop'
