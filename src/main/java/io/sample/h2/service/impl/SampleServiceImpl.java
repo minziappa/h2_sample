@@ -16,9 +16,9 @@ public class SampleServiceImpl implements SampleService {
 	private UserDao userDaoImpl;
 
 	@Override
-	public User getName() {
-		User user = userDaoImpl.findByName("kim");
-		System.out.println(">>> + " + user.getName());
+	public User getName(String name) {
+		User user = userDaoImpl.findByName(name);
+		System.out.println(">>> + " + user.getEmail());
 		return user;
 	}
 

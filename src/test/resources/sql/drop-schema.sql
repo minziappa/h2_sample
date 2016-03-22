@@ -1,1 +1,1 @@
-DROP TABLE test.users
+DROP TABLE one.users

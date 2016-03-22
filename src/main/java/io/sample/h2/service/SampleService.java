@@ -6,7 +6,7 @@ import io.sample.h2.bean.User;
 
 public interface SampleService {
 
-	public User getName();
+	public User getName(String name);
 	public List<User> getAll();
 
 }
