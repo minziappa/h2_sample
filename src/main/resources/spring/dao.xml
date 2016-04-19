@@ -11,7 +11,7 @@
 
 	<!-- start-############be setted Dao Class################## -->
 	<bean id="userDaoImpl" class="io.sample.h2.dao.UserDaoImpl" >
-		<property name="namedParameterJdbcTemplate" ref="jdbcTemplate" />
+		<property name="namedParameterJdbcOperations" ref="dataSource" />
 	</bean>
 
 </beans>

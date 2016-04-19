@@ -1,4 +1,3 @@
-DROP TABLE one.users;
 
 CREATE TABLE one.users (
   id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,

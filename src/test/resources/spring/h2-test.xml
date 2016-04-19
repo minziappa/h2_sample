@@ -14,7 +14,9 @@
         <property name="username" value="sa"/>
         <property name="password" value="" />
 	</bean>
+
     <bean id="dbInit" class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
+    	<property name="sqlScriptEncoding" value="UTF-8"/>
         <property name="scripts">
             <list>
                 <value>classpath:sql/db-schema.sql</value>
@@ -29,15 +31,17 @@
             </list>
         </property>
     </bean>
-    <bean id="startupScripts" class="org.springframework.jdbc.datasource.init.DataSourceInitializer">
+
+    <bean class="org.springframework.jdbc.datasource.init.DataSourceInitializer">
         <property name="dataSource"><ref bean="dataSource"/></property>
         <property name="databasePopulator"><ref bean="dbInit"/></property>
- 		<property name="databaseCleaner"><ref bean="dbCleanup"/></property>
+  		<property name="databaseCleaner"><ref bean="dbCleanup"/></property>
  		<property name="enabled" value="true" />
     </bean>
 
+<!-- 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" >
 		<constructor-arg ref="dataSource" />
 	</bean>
-
+ -->
 </beans>

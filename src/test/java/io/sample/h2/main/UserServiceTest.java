@@ -23,6 +23,7 @@ import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
 import io.sample.h2.bean.User;
+import io.sample.h2.bean.Users;
 import io.sample.h2.dao.UserDao;
 import io.sample.h2.service.SampleService;
 
@@ -32,8 +33,8 @@ import io.sample.h2.service.SampleService;
 @TestExecutionListeners({
 	  DependencyInjectionTestExecutionListener.class,
 	  DirtiesContextTestExecutionListener.class,
-	  TransactionDbUnitTestExecutionListener.class, //<-- needed if using transactions otherwise use TransactionalTestExecutionListener.class
-	  DbUnitTestExecutionListener.class })
+//	  TransactionDbUnitTestExecutionListener.class, //<-- needed if using transactions otherwise use TransactionalTestExecutionListener.class
+	  })
 public class UserServiceTest {
 
 	@Autowired
@@ -49,11 +50,10 @@ public class UserServiceTest {
 	@Test
 	@DatabaseSetup("/xml/sampleData.xml")
 	public void test1() {
+		// Users users = userDao.findByName("kim");
 
-		User user = userDao.findByName("kim");
-
-	    // user = sampleService.getName("kim");
-	    System.out.println("email >>> " + user.getEmail());
+		Users users = sampleService.getName("kim");
+	    System.out.println("email >>> " + users.getEmail());
 	}
 
 //	@Test

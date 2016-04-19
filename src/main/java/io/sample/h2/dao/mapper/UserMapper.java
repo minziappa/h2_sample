@@ -5,14 +5,14 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import io.sample.h2.bean.User;
+import io.sample.h2.bean.Users;
 
-public class UserMapper implements RowMapper<User> {
-	public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-		User user = new User();
-		user.setId(rs.getInt("id"));
-		user.setName(rs.getString("name"));
-		user.setEmail(rs.getString("email"));
-		return user;
+public class UserMapper implements RowMapper<Users> {
+	public Users mapRow(ResultSet rs, int rowNum) throws SQLException {
+		Users users = new Users();
+		users.setId(rs.getInt("id"));
+		users.setName(rs.getString("name"));
+		users.setEmail(rs.getString("email"));
+		return users;
 	}
 }

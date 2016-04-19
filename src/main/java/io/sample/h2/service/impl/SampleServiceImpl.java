@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.sample.h2.bean.User;
+import io.sample.h2.bean.Users;
 import io.sample.h2.dao.UserDao;
 import io.sample.h2.service.SampleService;
 
@@ -16,14 +16,14 @@ public class SampleServiceImpl implements SampleService {
 	private UserDao userDaoImpl;
 
 	@Override
-	public User getName(String name) {
-		User user = userDaoImpl.findByName(name);
-		System.out.println(">>> + " + user.getEmail());
-		return user;
+	public Users getName(String name) {
+		Users users = userDaoImpl.findByName(name);
+		System.out.println(">>> + " + users.getEmail());
+		return users;
 	}
 
 	@Override
-	public List<User> getAll() {
+	public List<Users> getAll() {
 		return userDaoImpl.findAll();
 	}
 

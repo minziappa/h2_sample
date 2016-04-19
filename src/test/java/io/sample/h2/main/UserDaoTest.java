@@ -9,6 +9,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import io.sample.h2.bean.User;
+import io.sample.h2.bean.Users;
 import io.sample.h2.dao.UserDao;
 import io.sample.h2.dao.UserDaoImpl;
 
@@ -29,12 +30,9 @@ public class UserDaoTest {
 
     @Test
     public void testFindByname() {
-    	NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(db);
-    	UserDaoImpl userDao = new UserDaoImpl();
-    	userDao.setNamedParameterJdbcTemplate(template);
 
-    	User user = userDao.findByName("kim");
-    	System.out.println("user >>>> " + user.getEmail());
+    	Users users = userDao.findByName("kim");
+    	System.out.println("user >>>> " + users.getEmail());
 
 //    	Assert.assertNotNull(user);
 //    	Assert.assertEquals(1, user.getId().intValue());
