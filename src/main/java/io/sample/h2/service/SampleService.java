@@ -7,7 +7,8 @@ import io.sample.h2.bean.Users;
 
 public interface SampleService {
 
-	public Users getName(String name);
+	public Users getNameByNamedParameterJdbcOperations(String name);
+	public Users getNameByNamedParameterJdbcTemplate(String name);
 	public List<Users> getAll();
 
 }

@@ -1,9 +1,4 @@
-package io.sample.h2.main;
-
-import static org.junit.Assert.assertEquals;
-
-import java.sql.PreparedStatement;
-import java.util.List;
+package io.sample.h2.service;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -15,16 +10,10 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 
-import com.github.springtestdbunit.DbUnitTestExecutionListener;
-import com.github.springtestdbunit.TransactionDbUnitTestExecutionListener;
-import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
-import io.sample.h2.bean.User;
 import io.sample.h2.bean.Users;
-import io.sample.h2.dao.UserDao;
 import io.sample.h2.service.SampleService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -35,12 +24,10 @@ import io.sample.h2.service.SampleService;
 	  DirtiesContextTestExecutionListener.class,
 //	  TransactionDbUnitTestExecutionListener.class, //<-- needed if using transactions otherwise use TransactionalTestExecutionListener.class
 	  })
-public class UserServiceTest {
+public class SampleServiceTest {
 
 	@Autowired
 	private SampleService sampleService;
-	@Autowired
-	private UserDao userDao;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -48,12 +35,15 @@ public class UserServiceTest {
 	}
 
 	@Test
-	@DatabaseSetup("/xml/sampleData.xml")
-	public void test1() {
+	// @DatabaseSetup("/xml/sampleData.xml")
+	public void testSpringJdbc() {
 		// Users users = userDao.findByName("kim");
 
-		Users users = sampleService.getName("kim");
-	    System.out.println("email >>> " + users.getEmail());
+		Users users = sampleService.getNameByNamedParameterJdbcOperations("kim");
+	    System.out.println("NamedParameterJdbcOperations >>> " + users.getEmail());
+
+		users = sampleService.getNameByNamedParameterJdbcTemplate("kim");
+	    System.out.println("NamedParameterJdbcTemplate >>> " + users.getEmail());
 	}
 
 //	@Test

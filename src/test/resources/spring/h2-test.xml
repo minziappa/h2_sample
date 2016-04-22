@@ -10,7 +10,7 @@
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.h2.Driver"/>
-		<property name="url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=ORACLE;INIT=create schema if not exists one\;SET SCHEMA one\;"/>
+		<property name="url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MYSQL;INIT=create schema if not exists one\;SET SCHEMA one"/>
         <property name="username" value="sa"/>
         <property name="password" value="" />
 	</bean>
@@ -39,9 +39,8 @@
  		<property name="enabled" value="true" />
     </bean>
 
-<!-- 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" >
 		<constructor-arg ref="dataSource" />
 	</bean>
- -->
+
 </beans>
