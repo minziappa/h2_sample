@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 
+import com.github.springtestdbunit.TransactionDbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
 import io.sample.h2.bean.Users;
@@ -22,7 +23,7 @@ import io.sample.h2.service.SampleService;
 @TestExecutionListeners({
 	  DependencyInjectionTestExecutionListener.class,
 	  DirtiesContextTestExecutionListener.class,
-//	  TransactionDbUnitTestExecutionListener.class, //<-- needed if using transactions otherwise use TransactionalTestExecutionListener.class
+	  TransactionDbUnitTestExecutionListener.class, //<-- needed if using transactions otherwise use TransactionalTestExecutionListener.class
 	  })
 public class SampleServiceTest {
 
@@ -35,14 +36,11 @@ public class SampleServiceTest {
 	}
 
 	@Test
-	// @DatabaseSetup("/xml/sampleData.xml")
 	public void testSpringJdbc() {
-		// Users users = userDao.findByName("kim");
-
 		Users users = sampleService.getNameByNamedParameterJdbcOperations("kim");
 	    System.out.println("NamedParameterJdbcOperations >>> " + users.getEmail());
 
-		users = sampleService.getNameByNamedParameterJdbcTemplate("kim");
+		users = sampleService.getNameByNamedParameterJdbcTemplate("joon");
 	    System.out.println("NamedParameterJdbcTemplate >>> " + users.getEmail());
 	}
 

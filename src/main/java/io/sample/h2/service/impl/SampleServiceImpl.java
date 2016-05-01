@@ -29,7 +29,7 @@ public class SampleServiceImpl implements SampleService {
 	public Users getNameByNamedParameterJdbcTemplate(String name) {
 		Users users = userByNamedParameterJdbcTemplateDao.findByName(name);
 		System.out.println(">>>2 + " + users.getEmail());
-		return null;
+		return users;
 	}
 
 	@Override

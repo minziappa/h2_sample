@@ -19,7 +19,8 @@
     	<property name="sqlScriptEncoding" value="UTF-8"/>
         <property name="scripts">
             <list>
-                <value>classpath:sql/db-schema.sql</value>
+            	<value>classpath:sql/db-schema.sql</value>
+                <value>classpath:sql/db-test-data.sql</value>
             </list>
         </property>
         <property name="continueOnError" value="true"/>

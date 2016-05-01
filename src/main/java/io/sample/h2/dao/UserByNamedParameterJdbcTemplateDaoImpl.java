@@ -37,7 +37,7 @@ public class UserByNamedParameterJdbcTemplateDaoImpl implements UserByNamedParam
 	public List<Users> findAll() {
 		Map<String, Object> params = new HashMap<String, Object>();
 
-		String sql = "SELECT * FROM users";
+		String sql = "SELECT * FROM one.users";
         List<Users> result = namedParameterJdbcTemplate.query(sql, params, new UserMapper());
 
         return result;
