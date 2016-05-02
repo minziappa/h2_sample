@@ -1,6 +1,6 @@
 # h2_sample
 
-[![Build Status](https://travis-ci.org/minziappa/h2_sample.svg?branch=master)](https://travis-ci.org/minziappa/h2_sample.svg)
+[![Build Status](https://travis-ci.org/minziappa/h2_sample.svg?branch=master)](https://travis-ci.org/minziappa/h2_sample.svg?branch=master)
 
 Using
 ------------------
