@@ -1,5 +1,15 @@
 # h2_sample
 
-https://springtestdbunit.github.io/spring-test-dbunit/
+[![Build Status](https://travis-ci.org/minziappa/h2_sample.svg?branch=master)](https://travis-ci.org/minziappa/h2_sample.svg)
 
-https://springtestdbunit.github.io/spring-test-dbunit/sample.html
+Using
+------------------
+#### How to build
+$ gradle clean build  
+
+#### How to run
+Run as > H2Main in Eclipse
+
+#### Notes
+
+#### Reference

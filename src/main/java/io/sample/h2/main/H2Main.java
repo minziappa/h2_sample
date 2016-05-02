@@ -9,7 +9,6 @@ public class H2Main {
 
 	public static void main(String[] args) {
 
-		System.out.println("I love minji");
 		ApplicationContext context = new ClassPathXmlApplicationContext("springConfig.xml");
 		SampleService sampleService = (SampleService) context.getBean("sampleServiceImpl");
 		sampleService.getNameByNamedParameterJdbcOperations("kim");
