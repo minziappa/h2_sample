@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -28,9 +29,14 @@ public class UserByNamedParameterJdbcTemplateDaoImpl implements UserByNamedParam
         params.put("name", name);
 
 		String sql = "SELECT * FROM one.users WHERE name=:name";
-		Users result = namedParameterJdbcTemplate.queryForObject(sql, params, new UserMapper());
 
-        return result;
+		// 1. Using UserMapper
+		// Users users = namedParameterJdbcTemplate.queryForObject(sql, params, new UserMapper());
+
+		// 2. This case is using BeanPropertyRowMapper class ( Not use RowMapper)
+		Users users = namedParameterJdbcTemplate.queryForObject(sql, params, new BeanPropertyRowMapper<>(Users.class));
+
+        return users;
 	}
 
 	@Override
