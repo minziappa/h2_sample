@@ -14,7 +14,7 @@
 		<jdbc:script location="classpath:sql/insert-data.sql" />
 	</jdbc:embedded-database>
  -->
- 
+
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.h2.Driver"/>
 		<property name="url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MYSQL;INIT=create schema if not exists one\;SET SCHEMA one"/>
@@ -26,6 +26,7 @@
     	<property name="sqlScriptEncoding" value="UTF-8"/>
         <property name="scripts">
             <list>
+            	<value>classpath:sql/create-abilists.sql</value>
                 <value>classpath:sql/create-db.sql</value>
                 <value>classpath:sql/insert-data.sql</value>
             </list>
